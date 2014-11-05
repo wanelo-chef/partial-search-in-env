@@ -1,9 +1,8 @@
 require 'chef/recipe'
 
-describe 'partial_search_in_env::default' do
+describe 'partial_search_in_env::test_recipe' do
   let(:node1) { [ 'bacon', { name: 'bacon' } ] }
   let(:chef_run) do
-    # ChefSpec::SoloRunner.new.converge(described_recipe)
     ChefSpec::ServerRunner.new do |node, server|
       server.create_node(*node1)
     end.converge(described_recipe)
