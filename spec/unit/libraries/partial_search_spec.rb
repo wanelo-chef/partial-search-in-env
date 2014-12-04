@@ -13,7 +13,7 @@ describe 'partial_search_in_env::test_recipe' do
   end
 
   it 'calls the original partial search method with the expected argument' do
-    expect_any_instance_of(Chef::Recipe).to receive(:partial_search).with(:node, '*:* AND environment:_default', {}).and_return(node1)
+    expect_any_instance_of(Chef::Recipe).to receive(:partial_search).with(:node, '(*:*) AND environment:_default', {}).and_return(node1)
     chef_run
   end
 end

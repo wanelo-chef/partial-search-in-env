@@ -5,8 +5,8 @@ module Wanelo
   # suddenly begin returning nodes from the wrong environment.
   module PartialSearchInEnv
     def partial_search_in_env(type, query = '*:*', args = {}, &block)
-      query += " AND environment:#{node.environment}"
-      partial_search(type, query, args, &block)
+      query_with_env = "(#{query}) AND environment:#{node.environment}"
+      partial_search(type, query_with_env, args, &block)
     end
   end
 end
